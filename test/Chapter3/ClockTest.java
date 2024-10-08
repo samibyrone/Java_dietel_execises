@@ -29,30 +29,30 @@ public class ClockTest {
     @Test
     public void test_to_initialize_and_validate_the_time() {
         time();
-        assertTrue(clock.getHour() == 12);
-        assertTrue(clock.getMinute() == 45);
-        assertTrue(clock.getSecond() == 50);
+        assertEquals(12, clock.getHour());
+        assertEquals(45, clock.getMinute());
+        assertEquals(50, clock.getSecond());
     }
 
    @Test
     public void test_to_set_invalid_hour() {
         time();
         clock.setHour(24);
-        assertTrue(clock.getHour() == 0);
+       assertEquals(0, clock.getHour());
    }
 
    @Test
     public void test_to_set_invalid_minute() {
         time();
         clock.setMinute(60);
-        assertTrue(clock.getMinute() == 0);
+       assertEquals(0, clock.getMinute());
    }
 
    @Test
     public void test_to_set_invalid_second() {
         time();
         clock.setSecond(60);
-        assertTrue(clock.getSecond() == 0);
+       assertEquals(0, clock.getSecond());
    }
 
    @Test
@@ -61,7 +61,7 @@ public class ClockTest {
         clock.setHour(7);
         clock.setMinute(5);
         clock.setSecond(8);
-        assertTrue(clock.timeFormatDisplay().equals("07:05:08"));
+       assertEquals("07:05:08", clock.timeFormatDisplay());
    }
 
    @Test
@@ -70,7 +70,7 @@ public class ClockTest {
         clock.setHour(0);
         clock.setMinute(0);
         clock.setSecond(0);
-        assertTrue(clock.timeFormatDisplay().equals("00:00:00"));
+       assertEquals("00:00:00", clock.timeFormatDisplay());
    }
 
    @Test
@@ -79,6 +79,6 @@ public class ClockTest {
         clock.setHour(23);
         clock.setMinute(59);
         clock.setSecond(59);
-        assertTrue(clock.timeFormatDisplay().equals("23:59:59"));
+       assertEquals("23:59:59", clock.timeFormatDisplay());
    }
 }

@@ -115,6 +115,7 @@ public class Health_Records {
     }
 
     public static void main(String[] args) {
+
         Scanner samibyrone = new Scanner(System.in);
 
         System.out.print("What is Your First Name: ");

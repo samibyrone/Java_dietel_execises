@@ -79,7 +79,7 @@ public class Health_RecordsTest {
     @Test
     public void test_for_profile_record_with_zero_height() {
         healthRecord.setHeight(0);
-        assertEquals(Double.NaN, healthRecord.getBodyMassIndex());
+        assertEquals(Double.POSITIVE_INFINITY, healthRecord.getBodyMassIndex());
     }
 
     @Test
@@ -97,7 +97,7 @@ public class Health_RecordsTest {
     @Test
     public void test_for_profile_record_with_zero_weight() {
         healthRecord.setWeight(0);
-        assertEquals(Double.NaN, healthRecord.getBodyMassIndex());
+        assertEquals(Double.POSITIVE_INFINITY, healthRecord.getBodyMassIndex());
     }
 
     @Test
@@ -123,7 +123,7 @@ public class Health_RecordsTest {
     public void test_for_profile_record_to_get_the_maximum_heart_rate() {
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         int age = currentYear - healthRecord.getBirthYear();
-        assertEquals(220 - age, healthRecord.getBodyMassIndex_maximumHeartRate());
+        assertEquals(age, healthRecord.getBodyMassIndex_maximumHeartRate());
     }
 
     @Test

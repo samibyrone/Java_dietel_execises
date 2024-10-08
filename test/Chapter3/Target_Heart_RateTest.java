@@ -50,21 +50,21 @@ public class Target_Heart_RateTest {
     }
 
     @Test
-    public void test_for_person_heart_rate_day() {
+    public void test_for_person_heart_rate_birth_day() {
         targetPerson();
         target.setDay(25);
         assertEquals(target.getDay() == 25, true);
     }
 
     @Test
-    public void test_for_person_heart_rate_month() {
+    public void test_for_person_heart_rate_birth_month() {
         targetPerson();
         target.setMonth(6);
         assertEquals(target.getMonth() == 6, true);
     }
 
     @Test
-    public void test_for_person_heart_rate_year() {
+    public void test_for_person_heart_rate_birth_year() {
         targetPerson();
         target.setYear(2014);
         assertEquals(target.getYear() == 2014, true);
