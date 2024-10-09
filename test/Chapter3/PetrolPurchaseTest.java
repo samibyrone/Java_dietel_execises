@@ -29,11 +29,11 @@ public class PetrolPurchaseTest {
         petrol.setQuantity(500);
         petrol.setPrice(850.0);
         petrol.setPriceDiscount(0.08);
-        assertTrue(petrol.getLocation().equals("Abeokuta"));
-        assertTrue(petrol.getPetrolType().equals("Filling-station"));
-        assertTrue(petrol.getQuantity() == 500);
-        assertTrue(petrol.getPrice() == 850.0);
-        assertTrue(petrol.getPriceDiscount() == 0.08);
+        assertEquals("Abeokuta", petrol.getLocation());
+        assertEquals("Filling-station", petrol.getPetrolType());
+        assertEquals(500, petrol.getQuantity());
+        assertEquals(850.0, petrol.getPrice());
+        assertEquals(0.08, petrol.getPriceDiscount());
     }
 
     private void purchase() {
@@ -47,46 +47,46 @@ public class PetrolPurchaseTest {
     @Test
     public void test_the_location_for_petrol_purchase() {
         purchase();
-        assertFalse(petrol.getLocation().equals("Lagos"));
+        assertNotEquals("Lagos", petrol.getLocation());
     }
 
     @Test
     public void test_for_the_type_of_petrol_purchase() {
         purchase();
-        assertFalse(petrol.getLocation().equals("Lagos"));
+        assertNotEquals("Lagos", petrol.getLocation());
         petrol.setLocation("Abeokuta");
-        assertTrue(petrol.getLocation().equals("Abeokuta"));
+        assertEquals("Abeokuta", petrol.getLocation());
     }
 
     @Test
     public void test_for_the_quantity_of_petrol_purchase() {
         purchase();
-        assertFalse(petrol.getQuantity() == 100);
+        assertNotEquals(100, petrol.getQuantity());
         petrol.setQuantity(5000);
-        assertTrue(petrol.getQuantity() == 5000);
+        assertEquals(5000, petrol.getQuantity());
     }
 
     @Test
     public void test_for_the_price_per_liter_of_petrol_purchase() {
         purchase();
-        assertFalse(petrol.getPrice() == 500.0);
+        assertNotEquals(500.0, petrol.getPrice(), 0.0);
         petrol.setPrice(1000.0);
-        assertTrue(petrol.getPrice() == 1000.0);
+        assertEquals(1000.0, petrol.getPrice());
     }
 
     @Test
     public void test_for_the_price_discount_on_each_of_petrol_purchase() {
         purchase();
-        assertFalse(petrol.getPriceDiscount() == 0.05);
+        assertNotEquals(0.05, petrol.getPriceDiscount(), 0.0);
         petrol.setPriceDiscount(0.10);
-        assertTrue(petrol.getPriceDiscount() == 0.10);
+        assertEquals(0.10, petrol.getPriceDiscount());
     }
 
     @Test
     public void test_to_calculate_petrol_purchase_amount() {
         purchase();
         double amount = 200 * 800 * (1 - 0.06 / 100);
-        assertTrue(petrol.getPurchasePrice() == amount);
+        assertEquals(petrol.getPurchasePrice(), amount);
     }
 
     @Test
@@ -94,7 +94,7 @@ public class PetrolPurchaseTest {
         purchase();
         petrol.setPriceDiscount(0.00);
         double amount = 200 * 800.0 * (1 - 0.00 / 100);
-        assertTrue(petrol.getPurchasePrice() == amount);
+        assertEquals(petrol.getPurchasePrice(), amount);
     }
 
     @Test
@@ -102,7 +102,7 @@ public class PetrolPurchaseTest {
         purchase();
         petrol.setPriceDiscount(-0.20);
         double amount = 200 * 800.0 * (1 - (-0.20 / 100));
-        assertTrue(petrol.getPurchasePrice() == amount);
+        assertEquals(petrol.getPurchasePrice(), amount);
     }
 
     @Test
@@ -110,6 +110,6 @@ public class PetrolPurchaseTest {
         purchase();
         petrol.setPrice(-800.0);
         double amount = 200 * -800.0 * (1 - 0.06 / 100);
-        assertTrue(petrol.getPurchasePrice() == amount);
+        assertEquals(petrol.getPurchasePrice(), amount);
     }
 }
